@@ -1765,15 +1765,7 @@ class LanceDataset(pa.dataset.Dataset):
         ``MaterializeIndex`` operator.
 
         """
-        if isinstance(column, str):
-            column = [column]
-
-        if len(column) > 1:
-            raise NotImplementedError(
-                "Scalar indices currently only support a single column"
-            )
-
-        column = column[0]
+        column = column
         if column not in self.schema.names:
             raise KeyError(f"{column} not found in schema")
 
